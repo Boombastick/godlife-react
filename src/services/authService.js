@@ -24,7 +24,6 @@ const apiClient = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-const state = nanoid();
 const loginWithNaver = () => {
   try {
     const NAVER_LOGIN_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${
@@ -50,4 +49,13 @@ const loginWithGoogle = () => {
     console.log(err);
   }
 };
-const loginWithKakao = () => {};
+const loginWithKakao = () => {
+  try {
+    const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${
+      import.meta.env.VITE_KAKAO_CLIENT_ID
+    }&redirect_uri=${
+      import.meta.env.VITE_KAKAO_REDIRECT_URI
+    }&state=${nanoid()}&scope=profile_nickname, profile_image, account_email, name, gender, age_range, birthday, birthyear, phone_number`;
+    window.location.href = KAKAO_LOGIN_URL;
+  } catch (err) {}
+};
