@@ -57,5 +57,7 @@ const loginWithKakao = () => {
       import.meta.env.VITE_KAKAO_REDIRECT_URI
     }&state=${nanoid()}&scope=profile_nickname, profile_image, account_email, name, gender, age_range, birthday, birthyear, phone_number`;
     window.location.href = KAKAO_LOGIN_URL;
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };
