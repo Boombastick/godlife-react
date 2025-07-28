@@ -43,7 +43,7 @@ const loginWithGoogle = () => {
       import.meta.env.VITE_GOOGLE_CLIENT_ID
     }&redirect_uri=${
       import.meta.env.VITE_GOOGLE_REDIRECT_URI
-    }&response_type=code&scope=profile&state=${nanoid()}`;
+    }&response_type=code&scope=profile email&state=${nanoid()}`;
     window.location.href = GOOGLE_LOGIN_URL;
   } catch (err) {
     console.log(err);
